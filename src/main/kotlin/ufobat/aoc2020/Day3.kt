@@ -13,19 +13,13 @@ class Map(private val map: List<CharArray>) {
         return lineData[pos] == '#'
     }
 
-    fun countTreesInMyWay(right: Int, down: Int = 1): Long {
-        var posX = 1
-        // println("number of lines in the map $length")
-        return (1..length step down)
-                .map {
-                    val isTree= isTreeAt(it, posX)
-                    posX += right
-                    isTree
-                }
+    fun countTreesInMyWay(right: Int, down: Int = 1)=
+        (1..length step down)
+                .zip(1..Int.MAX_VALUE step right)
+                .map { (line, col) -> isTreeAt(line, col) }
                 .filter { it }
                 .count()
                 .toLong()
-    }
 }
 class Day3 {
 
