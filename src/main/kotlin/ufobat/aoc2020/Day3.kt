@@ -2,7 +2,7 @@ package ufobat.aoc2020
 
 import kotlin.streams.toList
 
-class Map(private val map: List<List<Boolean>>) {
+class Map(private val map: List<CharArray>) {
     private val length = map.count()
 
     fun isTreeAt(line: Int, col: Int): Boolean {
@@ -10,7 +10,7 @@ class Map(private val map: List<List<Boolean>>) {
 
         val lineData = map[line - 1]
         val pos = (col-1) % lineData.count()
-        return lineData[pos]
+        return lineData[pos] == '#'
     }
 
     fun countTreesInMyWay(right: Int, down: Int = 1): Long {
@@ -39,18 +39,8 @@ class Day3 {
             .bufferedReader()
             .lines()
 
-    fun parseMap(lines: List<String>): List<List<Boolean>> {
-        return lines.map { line ->
-            line
-                    .toCharArray()
-                    .map { char ->
-                        when (char) {
-                            '.'  -> false
-                            '#'  -> true
-                            else -> throw IllegalArgumentException("invalid char in map")
-                        }
-                    }
-        }
+    fun parseMap(lines: List<String>): List<CharArray> {
+        return lines.map { it.toCharArray() }
     }
 
     fun getDemoMap(): Map {
