@@ -2,7 +2,7 @@ package ufobat.aoc2020
 
 import kotlin.streams.toList
 
-object Data {
+object Data10 {
     fun getDemoInput() = this::class.java.getResourceAsStream("/day10_demo_input.txt")
             .bufferedReader()
             .lines()
@@ -24,7 +24,7 @@ fun calcDistribution() {
     val distribution = mutableMapOf<Long, Int>()
     var lastValue: Long = 0
 
-    Data.getPuzzleInput()
+    Data10.getPuzzleInput()
             .sorted()
             .forEach {
                 distribution.inc(it - lastValue)
@@ -40,7 +40,7 @@ fun calcDistribution() {
 fun calcCombinations() {
     val data = mutableListOf<Long>().apply {
         this.add(0)
-        this.addAll( Data.getPuzzleInput().sorted() )
+        this.addAll(Data10.getPuzzleInput().sorted() )
         this.add(this.last() +3 )
     }.toList()
 
