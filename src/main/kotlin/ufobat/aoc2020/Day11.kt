@@ -140,11 +140,9 @@ fun checkDirectoriesOccupied(layout: Array<CharArray>, i: Int, j: Int): Int {
             while (true) {
                 iPos += iDirection
                 jPos += jDirection
-                if (iPos in lineRange && jPos in rowRange) {
-                    // continue with empty seats
-                    if (layout[iPos][jPos] == 'L') { break }
-                    if (layout[iPos][jPos] == '#') { cnt++; break }
-                } else break
+                if (iPos !in lineRange || jPos !in rowRange) break
+                if (layout[iPos][jPos] == '#') cnt++
+                if (layout[iPos][jPos] != '.') break
             }
         }
     }
