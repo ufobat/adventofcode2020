@@ -1,7 +1,6 @@
 package ufobat.aoc2020
 
 import kotlin.streams.toList
-import kotlin.system.exitProcess
 
 object Data14 {
     fun getDemoInputTask1() = listOf<String>("mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X",
