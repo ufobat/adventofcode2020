@@ -12,12 +12,12 @@ object Data18 {
 object ParenOpen { override fun toString() = "(" }
 object ParenClose { override fun toString() = ")" }
 
-val parenClose = Regex("^\\)")
-val parenOpen = Regex("^\\(")
-val operator = Regex("^[+\\-*/]")
-val number = Regex("^\\d+")
-
 fun tokenize(line: String): List<Any> {
+    var parenClose = Regex("^\\)")
+    val parenOpen = Regex("^\\(")
+    val operator = Regex("^[+\\-*/]")
+    val number = Regex("^\\d+")
+
     var data = line.replace("""\s+""".toRegex(), "")
     val tokens = mutableListOf<Any>()
 
