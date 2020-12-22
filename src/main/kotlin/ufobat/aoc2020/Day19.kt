@@ -31,7 +31,7 @@ object Data19 {
 
 fun main() {
     val input = Data19.getPuzzleInput2()
-    val (rules, data) = parseData(input)
+    val (rules, data) = parseRuleData(input)
     println(rules.size)
     println(data.size)
 
@@ -97,7 +97,7 @@ fun rulesToRegex(rules: Map<String, String>): Regex {
     return parsedRules["0"]!!.toRegex()
 }
 
-fun parseData(input: List<String>): Pair<Map<String, String>, MutableList<String>> {
+fun parseRuleData(input: List<String>): Pair<Map<String, String>, MutableList<String>> {
     val rules = mutableMapOf<String, String>()
     val data = mutableListOf<String>()
     val regex = Regex("""^(\d+): (.*)$""")
